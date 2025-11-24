@@ -11,7 +11,12 @@ import { ClimbService } from '../services/climb-service';
   styleUrl: './climb-card.css',
 })
 export class ClimbCard {
-  constructor(private router: Router, private climbService: ClimbService) {}
+  constructor(
+    private router: Router,
+    private climbService: ClimbService,
+  ) {
+    console.log('Router injected:', this.router); // Debug log
+  }
 
   @Input() climb!: Climb;
   @Output() delete = new EventEmitter<number>();
@@ -25,5 +30,29 @@ export class ClimbCard {
   editClimb(id: number) {
     // Navigate to the edit page for the climb
     this.router.navigate(['/edit-climb', id]);
+  }
+
+  viewClimbDetails(): void {
+    console.log('Navigating to climb detail:', this.climb.id);
+    console.log('Router state before navigation:', this.router.url);
+    
+    this.router.navigate(['/climb', this.climb.id]).then(
+      success => console.log('Navigation successful:', success),
+      error => console.error('Navigation error:', error)
+    );
+  }
+
+  updateClimbStatus(userId: number, routeId: number, status: string): void {
+    console.log('Update status clicked:', userId, routeId, status);
+    this.climbService.updateClimbStatus(userId, this.climb.id, status).subscribe({
+      next: () => {
+        console.log('Status updated successfully');
+        alert(`Climb marked as ${status}!`);
+      },
+      error: (err: any) => {
+        console.error('Error updating status:', err);
+        alert('Failed to update climb status. Check console for details. Sent ' + JSON.stringify({ userId, routeId, status }) + err.message);
+      }
+    });
   }
 }

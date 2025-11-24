@@ -17,6 +17,9 @@ export class ClimbService {
   createClimb(climb: Climb): Observable<any> {
     return this.http.post(`${this.baseUrl}/climb`, climb);
   }
+  updateClimbStatus(userID: number, climbID: number, status: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/UserRoute/${userID}/${climbID}/${status}`, {});
+  }
   updateClimb(climb: Climb): Observable<any> {
     return this.http.put(`${this.baseUrl}/climb`, climb);
   }

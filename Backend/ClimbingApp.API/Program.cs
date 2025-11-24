@@ -15,7 +15,7 @@ builder.Services.AddScoped<AdminRepository>();
 builder.Services.AddScoped<GradeRepository>();
 builder.Services.AddScoped<SessionRepository>();
 builder.Services.AddScoped<SessionRouteRepository>();
-
+builder.Services.AddScoped<UserRouteRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

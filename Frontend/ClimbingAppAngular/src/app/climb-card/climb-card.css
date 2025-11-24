@@ -5,11 +5,18 @@
   padding: 1.5rem;
   transition: transform 0.2s, box-shadow 0.2s;
   border-left: 4px solid #4CAF50;
+  cursor: pointer;
 }
 
 .climb-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.climb-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .climb-info {
