@@ -55,4 +55,9 @@ export class ClimbCard {
       }
     });
   }
+
+  debugClick(): void {
+    console.log('Link clicked! Navigating to climb:', this.climb.id);
+    alert('Navigating to climb ' + this.climb.id);
+  }
 }

@@ -1,37 +1,17 @@
-<div class="climb-detail-container" *ngIf="climb">
-  <button (click)="goBack()" class="back-button">← Back to Climbs</button>
+<div class="climb-detail-container">
   
-  <div class="climb-detail-card">
-    <h2>Climb #{{ climb.id }}</h2>
-    
-    <div class="detail-section">
-      <h3>Details</h3>
-      <p><strong>Grade ID:</strong> {{ climb.gradeID }}</p>
-      <p><strong>Gym ID:</strong> {{ climb.gymID }}</p>
-      <p><strong>Set Date:</strong> {{ climb.setDate }}</p>
-      <p *ngIf="climb.removeDate"><strong>Remove Date:</strong> {{ climb.removeDate }}</p>
-      <p><strong>Admin ID:</strong> {{ climb.adminID }}</p>
-    </div>
-
-    <div class="actions-section">
-      <h3>Mark Your Progress</h3>
-      <button (click)="updateClimbStatus(4, 'project')" class="status-button project">Project</button>
-      <button (click)="updateClimbStatus(4, 'attempted')" class="status-button attempted">Attempted</button>
-      <button (click)="updateClimbStatus(4, 'done')" class="status-button done">Done</button>
-      <button (click)="updateClimbStatus(4, 'flash')" class="status-button flash">Flash</button>
-    </div>
-
-    <div class="user-routes-section" *ngIf="userRoutes.length > 0">
-      <h3>User Activity</h3>
-      <ul>
-        <li *ngFor="let ur of userRoutes">
-          User #{{ ur.userID }}: <strong>{{ ur.status }}</strong>
-        </li>
-      </ul>
+  <div *ngIf="loading && !climb" class="loading">Loading climb details...</div>
+  
+  <div *ngIf="climb">
+    <h2>Climb #{{ climb?.id }}</h2>
+    <div class="climb-info">
+      <p><strong>Grade ID:</strong> <span>{{ climb?.gradeID }}</span></p>
+      <p><strong>Gym ID:</strong> <span>{{ climb?.gymID }}</span></p>
+      <p><strong>Set Date:</strong> <span>{{ climb?.setDate }}</span></p>
+      <p *ngIf="climb?.removeDate"><strong>Remove Date:</strong> <span>{{ climb?.removeDate }}</span></p>
+      <p><strong>Admin ID:</strong> <span>{{ climb?.adminID }}</span></p>
     </div>
   </div>
-</div>
-
-<div *ngIf="!climb" class="loading">
-  Loading climb details...
+  
+  <div *ngIf="error" class="error">{{ error }}</div>
 </div>

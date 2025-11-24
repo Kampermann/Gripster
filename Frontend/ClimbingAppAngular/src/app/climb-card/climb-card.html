@@ -1,5 +1,5 @@
 <div class="climb-card">
-  <a routerLink="['/climb-detail', climb.id]" class="climb-link">
+  <a routerLink="['/climb', climb.id]" class="climb-link" (click)="debugClick()">
     <div class="climb-info">
       <p><strong>Climb #</strong> <span>{{ climb.id }}</span></p>
       <p><strong>Grade ID</strong> <span>{{ climb.gradeID }}</span></p>
