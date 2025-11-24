@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbingApp.API", "ClimbingApp.API\ClimbingApp.API.csproj", "{87691FF6-E660-4723-BB5F-FC939FB2208B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimbingApp.Model", "ClimbingApp.Model\ClimbingApp.Model.csproj", "{D30C22F1-9681-40B4-B8BD-AA9F00583B1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87691FF6-E660-4723-BB5F-FC939FB2208B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87691FF6-E660-4723-BB5F-FC939FB2208B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87691FF6-E660-4723-BB5F-FC939FB2208B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87691FF6-E660-4723-BB5F-FC939FB2208B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D30C22F1-9681-40B4-B8BD-AA9F00583B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D30C22F1-9681-40B4-B8BD-AA9F00583B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D30C22F1-9681-40B4-B8BD-AA9F00583B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D30C22F1-9681-40B4-B8BD-AA9F00583B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

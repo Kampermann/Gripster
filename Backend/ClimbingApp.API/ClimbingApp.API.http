@@ -1,0 +1,6 @@
+@ClimbingApp.API_HostAddress = http://localhost:5098
+
+GET {{ClimbingApp.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

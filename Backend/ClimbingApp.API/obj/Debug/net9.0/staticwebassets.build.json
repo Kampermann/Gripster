@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "OQoI8zrkU1uoiSxbdBuZApTI0prrUvfAXppjV6IHUDQ=",
+  "Source": "ClimbingApp.API",
+  "BasePath": "_content/ClimbingApp.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

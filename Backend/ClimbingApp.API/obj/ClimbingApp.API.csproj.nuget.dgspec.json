@@ -1,0 +1,157 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/julianwalz/Desktop/ClimbingApp/Backend/ClimbingApp.API/ClimbingApp.API.csproj": {}
+  },
+  "projects": {
+    "/Users/julianwalz/Desktop/ClimbingApp/Backend/ClimbingApp.API/ClimbingApp.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/julianwalz/Desktop/ClimbingApp/Backend/ClimbingApp.API/ClimbingApp.API.csproj",
+        "projectName": "ClimbingApp.API",
+        "projectPath": "/Users/julianwalz/Desktop/ClimbingApp/Backend/ClimbingApp.API/ClimbingApp.API.csproj",
+        "packagesPath": "/Users/julianwalz/.nuget/packages/",
+        "outputPath": "/Users/julianwalz/Desktop/ClimbingApp/Backend/ClimbingApp.API/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/julianwalz/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/julianwalz/Desktop/ClimbingApp/Backend/ClimbingApp.Model/ClimbingApp.Model.csproj": {
+                "projectPath": "/Users/julianwalz/Desktop/ClimbingApp/Backend/ClimbingApp.Model/ClimbingApp.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[1.6.17, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/julianwalz/Desktop/ClimbingApp/Backend/ClimbingApp.Model/ClimbingApp.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/julianwalz/Desktop/ClimbingApp/Backend/ClimbingApp.Model/ClimbingApp.Model.csproj",
+        "projectName": "ClimbingApp.Model",
+        "projectPath": "/Users/julianwalz/Desktop/ClimbingApp/Backend/ClimbingApp.Model/ClimbingApp.Model.csproj",
+        "packagesPath": "/Users/julianwalz/.nuget/packages/",
+        "outputPath": "/Users/julianwalz/Desktop/ClimbingApp/Backend/ClimbingApp.Model/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/julianwalz/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
+            "NpgSql": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
