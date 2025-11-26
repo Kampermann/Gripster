@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClimbService } from '../services/climb-service';
 import { Climb } from '../model/climb';
 
 @Component({
   selector: 'app-climb-detail',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './climb-detail.component.html',
   styleUrls: ['./climb-detail.component.css']
 })
@@ -30,8 +33,10 @@ export class ClimbDetailComponent implements OnInit {
   loadClimb(): void {
     this.loading = true;
     console.log('Fetching climb from:', this.climbService.baseUrl);
+    console.log('Fetching climb with ID:', this.climbID);
     this.climbService.getClimb(this.climbID).subscribe({
       next: (climb) => {
+        console.log('Climb data received:', climb);
         this.climb = climb;
         this.loading = false;
       },

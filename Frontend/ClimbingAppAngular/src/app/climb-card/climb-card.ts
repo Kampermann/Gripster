@@ -1,12 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 import { Climb } from '../model/climb';
-import { Router } from '@angular/router';  
 import { ClimbService } from '../services/climb-service';
 
 @Component({
   selector: 'app-climb-card',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './climb-card.html',
   styleUrl: './climb-card.css',
 })

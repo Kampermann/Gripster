@@ -1,17 +1,51 @@
 <div class="climb-detail-container">
   
-  <div *ngIf="loading && !climb" class="loading">Loading climb details...</div>
+  <div *ngIf="loading && !climb" class="loading">
+    <div class="spinner"></div>
+    <p>Loading climb details...</p>
+  </div>
   
-  <div *ngIf="climb">
-    <h2>Climb #{{ climb?.id }}</h2>
+  <div *ngIf="climb" class="climb-card">
+    <div class="climb-header">
+      <h1>Climb #{{ climb.id }}</h1>
+      <button class="btn-back" (click)="goBack()">← Back to Climbs</button>
+    </div>
+    
     <div class="climb-info">
-      <p><strong>Grade ID:</strong> <span>{{ climb?.gradeID }}</span></p>
-      <p><strong>Gym ID:</strong> <span>{{ climb?.gymID }}</span></p>
-      <p><strong>Set Date:</strong> <span>{{ climb?.setDate }}</span></p>
-      <p *ngIf="climb?.removeDate"><strong>Remove Date:</strong> <span>{{ climb?.removeDate }}</span></p>
-      <p><strong>Admin ID:</strong> <span>{{ climb?.adminID }}</span></p>
+      <div class="info-item">
+        <span class="label">Grade ID</span>
+        <span class="value">{{ climb.gradeID }}</span>
+      </div>
+      
+      <div class="info-item">
+        <span class="label">Gym ID</span>
+        <span class="value">{{ climb.gymID }}</span>
+      </div>
+      
+      <div class="info-item">
+        <span class="label">Set Date</span>
+        <span class="value">{{ climb.setDate | date:'medium' }}</span>
+      </div>
+      
+      <div class="info-item" *ngIf="climb.removeDate">
+        <span class="label">Remove Date</span>
+        <span class="value">{{ climb.removeDate | date:'medium' }}</span>
+      </div>
+      
+      <div class="info-item">
+        <span class="label">Admin ID</span>
+        <span class="value">{{ climb.adminID }}</span>
+      </div>
+    </div>
+    
+    <div class="climb-actions">
+      <button class="btn-delete" (click)="onDeleteClimb(climb.id)">Delete Climb</button>
     </div>
   </div>
   
-  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="error" class="error-card">
+    <span class="error-icon">⚠️</span>
+    <p>{{ error }}</p>
+    <button class="btn-retry" (click)="loadClimb()">Retry</button>
+  </div>
 </div>
