@@ -1,24 +1,19 @@
 .climb-detail-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  min-height: 100vh;
-  background-image: url('/assets/images/climbing-background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
 .back-button {
   margin-bottom: 20px;
-  padding: 10px 20px;
+  padding: 10px 10px;
   background-color: rgba(108, 117, 125, 0.9);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   backdrop-filter: blur(5px);
+  margin-left: auto;
 }
 
 .back-button:hover {
@@ -26,11 +21,7 @@
 }
 
 .climb-detail-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 8px;
-  padding: 30px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
+  background: white;
 }
 
 .climb-detail-card h2 {
@@ -72,8 +63,8 @@
 
 .status-button.project { background-color: #ffc107; }
 .status-button.attempted { background-color: #17a2b8; }
-.status-button.done { background-color: #28a745; }
-.status-button.flash { background-color: #dc3545; }
+.status-button.flash { background-color: #28a745; }
+.status-button.done { background-color: #dc3545; }
 
 .user-routes-section ul {
   list-style: none;
@@ -88,10 +79,12 @@
 }
 
 .loading {
-  text-align: center;
-  padding: 3rem;
-  font-size: 18px;
-  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 20px;
 }
 
 .spinner {
@@ -152,92 +145,131 @@
   margin-bottom: 2rem;
 }
 
-.info-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-  transition: transform 0.2s;
+.climb-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin: 24px 0;
 }
 
-.info-item:hover {
-  transform: translateX(5px);
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(245, 245, 245, 0.6);
+  border-radius: 8px;
+}
+
+.info-item mat-icon {
+  color: rgba(103, 58, 183, 0.8);
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+}
+
+.info-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .label {
-  font-weight: 600;
-  color: #495057;
+  font-size: 12px;
+  color: #666;
   text-transform: uppercase;
-  font-size: 0.85rem;
   letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 .value {
-  color: #2c3e50;
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
 }
 
-.climb-actions {
+.status-chip {
+  color: white !important;
+  font-weight: 600;
+}
+
+.status-top {
+  background-color: rgba(255, 152, 0, 0.7) !important;
+}
+
+.status-flash {
+  background-color: rgba(76, 175, 80, 0.7) !important;
+}
+
+.status-attempted {
+  background-color: rgba(33, 150, 243, 0.7) !important;
+}
+
+mat-card-header {
   display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 2px solid #f0f0f0;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
-.btn-delete {
-  padding: 0.75rem 1.5rem;
-  background: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: background 0.3s;
+mat-card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
 }
 
-.btn-delete:hover {
-  background: #c82333;
+mat-card-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 16px;
+}
+
+mat-card-actions button {
+  flex: 1;
+  min-width: 150px;
+  border-radius: 20px !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+mat-card-actions button:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Override Material button colors to use default (not colored) */
+mat-card-actions button[color="primary"],
+mat-card-actions button[color="accent"],
+mat-card-actions button[color="warn"] {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+mat-card-actions button[color="primary"]:hover,
+mat-card-actions button[color="accent"]:hover,
+mat-card-actions button[color="warn"]:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
 }
 
 .error-card {
-  background: #fff3cd;
-  border: 1px solid #ffc107;
-  border-radius: 8px;
-  padding: 2rem;
   text-align: center;
+  padding: 40px;
+  background: rgba(255, 235, 238, 0.7);
 }
 
 .error-icon {
-  font-size: 3rem;
-  display: block;
-  margin-bottom: 1rem;
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+  color: rgba(244, 67, 54, 0.8);
+  margin-bottom: 16px;
 }
 
 .error-card p {
-  color: #856404;
-  margin: 0 0 1rem 0;
-  font-size: 1.1rem;
-}
-
-.btn-retry {
-  padding: 0.5rem 1.5rem;
-  background: #ffc107;
-  color: #856404;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-.btn-retry:hover {
-  background: #e0a800;
+  margin: 16px 0;
+  font-size: 16px;
+  color: #333;
 }
 
 @media (max-width: 600px) {
@@ -251,5 +283,19 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .climb-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  mat-card-actions {
+    flex-direction: column;
+  }
+
+  mat-card-actions button {
+    width: 100%;
   }
 }

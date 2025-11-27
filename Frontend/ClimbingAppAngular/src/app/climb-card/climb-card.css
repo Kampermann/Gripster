@@ -6,11 +6,15 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   border-left: 4px solid #667eea;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .climb-card:hover {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .climb-link {
@@ -21,6 +25,7 @@
 
 .climb-info {
   margin-bottom: 16px;
+  margin: 16px 0;
 }
 
 .climb-info p {
@@ -94,4 +99,84 @@
   .climb-actions button {
     min-width: calc(50% - 4px);
   }
+}
+
+mat-card-header mat-icon {
+  margin-right: 8px;
+}
+
+mat-chip-set {
+  justify-content: flex-start;
+}
+
+mat-chip {
+  margin: 4px;
+  font-weight: 600;
+}
+
+mat-chip mat-icon {
+  color: white !important;
+}
+
+.grade-chip {
+  background-color: rgba(103, 58, 183, 0.7) !important;
+  color: white !important;
+}
+
+.status-chip {
+  color: white !important;
+}
+
+.status-top {
+  background-color: rgba(255, 152, 0, 0.7) !important;
+}
+
+.status-flash {
+  background-color: rgba(76, 175, 80, 0.7) !important;
+}
+
+.status-attempted {
+  background-color: rgba(33, 150, 243, 0.7) !important;
+}
+
+mat-card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+mat-card-actions button {
+  flex: 1;
+  min-width: 100px;
+  border-radius: 20px !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+mat-card-actions button:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.delete-btn {
+  margin-left: auto;
+  flex: 0;
+  min-width: 48px !important;
+}
+
+mat-icon {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+  /* flex: 0;
+  min-width: 48px !important;
+} */
+
+mat-icon {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+mat-card-actions button[color="warn"] mat-icon {
+  color: rgba(0, 0, 0, 0.87) !important;
 }

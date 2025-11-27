@@ -1,13 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ClimbCard } from '../climb-card/climb-card';
 import { ClimbService } from '../services/climb-service';
 import { Climb } from '../model/climb';
 
 @Component({
   selector: 'app-climb-list',
-  imports: [CommonModule, ClimbCard, FormsModule],
+  standalone: true,
+  imports: [
+    CommonModule, 
+    ClimbCard, 
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatIconModule,
+    MatProgressSpinnerModule
+  ],
   templateUrl: './climb-list.html',
   styleUrl: './climb-list.css',
 })

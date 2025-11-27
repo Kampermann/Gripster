@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatChipsModule } from '@angular/material/chips';
 import { ClimbService } from '../services/climb-service';
 import { Climb } from '../model/climb';
 
 @Component({
   selector: 'app-climb-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, MatProgressSpinnerModule, MatChipsModule],
   templateUrl: './climb-detail.component.html',
   styleUrls: ['./climb-detail.component.css']
 })
@@ -82,5 +87,10 @@ export class ClimbDetailComponent implements OnInit {
         alert('Failed to update climb status. ' + err.message);
       }
     });
+  }
+
+  updateClimbStatusWithDefault(routeId: number, status: string): void {
+    const userId = this.climb.userId ?? this.defaultUserId;
+    this.updateClimbStatus(userId, routeId, status);
   }
 }

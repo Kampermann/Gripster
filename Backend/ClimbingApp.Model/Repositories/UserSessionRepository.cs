@@ -30,7 +30,11 @@ namespace ClimbingApp.Model.Repositories
                             UserID = data["userid"] == DBNull.Value ? (int?)null : Convert.ToInt32(data["userid"]),
                             RouteID = Convert.ToInt32(data["routeid"]),
                             GradeFbleau = data["gradefbleau"].ToString(),
-                            Status = data["status"].ToString()
+                            Status = data["status"].ToString(),
+                            GymID = Convert.ToInt32(data["gymid"]),
+                            SetDate = data["setdate"].ToString(),
+                            RemoveDate = data["removedate"] == DBNull.Value ? null : data["removedate"].ToString(),
+                            AdminID = Convert.ToInt32(data["adminid"])
                         });
                     }
                 }
@@ -63,7 +67,11 @@ namespace ClimbingApp.Model.Repositories
                             UserID = Convert.ToInt32(data["userid"]),
                             RouteID = Convert.ToInt32(data["routeid"]),
                             GradeFbleau = data["gradefbleau"].ToString(),
-                            Status = data["status"].ToString()
+                            Status = data["status"].ToString(),
+                            GymID = Convert.ToInt32(data["gymid"]),
+                            SetDate = data["setdate"].ToString(),
+                            RemoveDate = data["removedate"] == DBNull.Value ? null : data["removedate"].ToString(),
+                            AdminID = Convert.ToInt32(data["adminid"])
                         };
                     }
                 }
@@ -96,7 +104,11 @@ namespace ClimbingApp.Model.Repositories
                             UserID = data["userid"] == DBNull.Value ? null : Convert.ToInt32(data["userid"]),
                             RouteID = Convert.ToInt32(data["routeid"]),
                             GradeFbleau = data["gradefbleau"].ToString(),
-                            Status = data["status"].ToString()
+                            Status = data["status"].ToString(),
+                            GymID = Convert.ToInt32(data["gymid"]),
+                            SetDate = data["setdate"].ToString(),
+                            RemoveDate = data["removedate"] == DBNull.Value ? null : data["removedate"].ToString(),
+                            AdminID = Convert.ToInt32(data["adminid"])
                         });
                     }
                 }
@@ -130,7 +142,11 @@ namespace ClimbingApp.Model.Repositories
                             UserID = data["userid"] == DBNull.Value ? null : Convert.ToInt32(data["userid"]),
                             RouteID = Convert.ToInt32(data["routeid"]),
                             GradeFbleau = data["gradefbleau"].ToString(),
-                            Status = data["status"].ToString()
+                            Status = data["status"].ToString(),
+                            GymID = Convert.ToInt32(data["gymid"]),
+                            SetDate = data["setdate"].ToString(),
+                            RemoveDate = data["removedate"] == DBNull.Value ? null : data["removedate"].ToString(),
+                            AdminID = Convert.ToInt32(data["adminid"])
                         });
                     }
                 }

@@ -1,51 +1,111 @@
 <div class="climb-detail-container">
   
   <div *ngIf="loading && !climb" class="loading">
-    <div class="spinner"></div>
+    <mat-spinner></mat-spinner>
     <p>Loading climb details...</p>
   </div>
   
-  <div *ngIf="climb" class="climb-card">
-    <div class="climb-header">
-      <h1>Climb #{{ climb.climbId }}</h1>
-      <button class="btn-back" (click)="goBack()">← Back to Climbs</button>
-    </div>
+  <mat-card *ngIf="climb" class="climb-detail-card mat-elevation-z4">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>terrain</mat-icon>
+        Route #{{ climb.routeId }}
+      </mat-card-title>
+      <button mat-icon-button (click)="goBack()" class="back-button">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </mat-card-header>
     
-    <div class="climb-info">
-      <div class="info-item">
-        <span class="label">Grade ID</span>
-        <span class="value">{{ climb.gradeID }}</span>
+    <mat-card-content>
+      <div class="climb-info-grid">
+        <div class="info-item">
+          <mat-icon>trending_up</mat-icon>
+          <div>
+            <span class="label">Grade</span>
+            <span class="value">{{ climb.grade }}</span>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <mat-icon>flag</mat-icon>
+          <div>
+            <span class="label">Status</span>
+            <mat-chip [class]="'status-chip status-' + climb.status.toLowerCase()">
+              {{ climb.status }}
+            </mat-chip>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <mat-icon>fitness_center</mat-icon>
+          <div>
+            <span class="label">Gym ID</span>
+            <span class="value">{{ climb.gymId }}</span>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <mat-icon>calendar_today</mat-icon>
+          <div>
+            <span class="label">Set Date</span>
+            <span class="value">{{ climb.setDate }}</span>
+          </div>
+        </div>
+        
+        <div class="info-item" *ngIf="climb.removeDate">
+          <mat-icon>event_busy</mat-icon>
+          <div>
+            <span class="label">Remove Date</span>
+            <span class="value">{{ climb.removeDate }}</span>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <mat-icon>admin_panel_settings</mat-icon>
+          <div>
+            <span class="label">Admin ID</span>
+            <span class="value">{{ climb.adminId }}</span>
+          </div>
+        </div>
+        
+        <div class="info-item" *ngIf="climb.userId">
+          <mat-icon>person</mat-icon>
+          <div>
+            <span class="label">User ID</span>
+            <span class="value">{{ climb.userId }}</span>
+          </div>
+        </div>
       </div>
-      
-      <div class="info-item">
-        <span class="label">Gym ID</span>
-        <span class="value">{{ climb.gymID }}</span>
-      </div>
-      
-      <div class="info-item">
-        <span class="label">Set Date</span>
-        <span class="value">{{ climb.setDate | date:'medium' }}</span>
-      </div>
-      
-      <div class="info-item" *ngIf="climb.removeDate">
-        <span class="label">Remove Date</span>
-        <span class="value">{{ climb.removeDate | date:'medium' }}</span>
-      </div>
-      
-      <div class="info-item">
-        <span class="label">Admin ID</span>
-        <span class="value">{{ climb.adminID }}</span>
-      </div>
-    </div>
+    </mat-card-content>
     
-    <div class="climb-actions">
-      <button class="btn-delete" (click)="onDeleteClimb(climb.id)">Delete Climb</button>
-    </div>
-  </div>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="updateClimbStatusWithDefault(climb.routeId, 'Top')">
+        <mat-icon>check_circle</mat-icon>
+        Mark as Top
+      </button>
+      <button mat-raised-button color="accent" (click)="updateClimbStatusWithDefault(climb.routeId, 'Flash')">
+        <mat-icon>bolt</mat-icon>
+        Mark as Flash
+      </button>
+      <button mat-raised-button (click)="updateClimbStatusWithDefault(climb.routeId, 'Attempted')">
+        <mat-icon>hourglass_empty</mat-icon>
+        Mark as Attempted
+      </button>
+      <button mat-raised-button color="warn" (click)="onDeleteClimb(climb.routeId)">
+        <mat-icon>delete</mat-icon>
+        Delete Climb
+      </button>
+    </mat-card-actions>
+  </mat-card>
   
-  <div *ngIf="error" class="error-card">
-    <span class="error-icon">⚠️</span>
-    <p>{{ error }}</p>
-    <button class="btn-retry" (click)="loadClimb()">Retry</button>
-  </div>
+  <mat-card *ngIf="error" class="error-card mat-elevation-z2">
+    <mat-card-content>
+      <mat-icon class="error-icon">error</mat-icon>
+      <p>{{ error }}</p>
+      <button mat-raised-button color="primary" (click)="loadClimb()">
+        <mat-icon>refresh</mat-icon>
+        Retry
+      </button>
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -1,37 +1,33 @@
 <div class="climb-list-container">
-  <div class="filter-section">
-    <h2>Filter Climbs</h2>
+  <div class="filter-section mat-elevation-z2">
+    <h2><mat-icon>filter_list</mat-icon> Filter Climbs</h2>
     <div class="filters">
-      <div class="filter-group">
-        <label for="status-filter">Status:</label>
-        <select 
-          id="status-filter" 
-          [(ngModel)]="selectedStatus" 
-          (change)="onStatusChange()"
-          class="filter-select">
-          <option *ngFor="let status of availableStatuses" [value]="status">
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="selectedStatus" (selectionChange)="onStatusChange()">
+          <mat-option *ngFor="let status of availableStatuses" [value]="status">
             {{ status === 'all' ? 'All Statuses' : status }}
-          </option>
-        </select>
-      </div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-      <div class="filter-group">
-        <label for="grade-filter">Grade:</label>
-        <select 
-          id="grade-filter" 
-          [(ngModel)]="selectedGrade" 
-          (change)="onGradeChange()"
-          class="filter-select">
-          <option *ngFor="let grade of availableGrades" [value]="grade">
+      <mat-form-field appearance="outline">
+        <mat-label>Grade</mat-label>
+        <mat-select [(ngModel)]="selectedGrade" (selectionChange)="onGradeChange()">
+          <mat-option *ngFor="let grade of availableGrades" [value]="grade">
             {{ grade === 'all' ? 'All Grades' : grade }}
-          </option>
-        </select>
-      </div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-      <button (click)="resetFilters()" class="reset-btn">Reset Filters</button>
+      <button mat-raised-button color="accent" (click)="resetFilters()">
+        <mat-icon>refresh</mat-icon>
+        Reset Filters
+      </button>
     </div>
 
     <div class="results-count">
+      <mat-icon>info</mat-icon>
       Showing {{ filteredClimbs.length }} of {{ climbs.length }} climbs
     </div>
   </div>
@@ -44,7 +40,9 @@
     </app-climb-card>
   </div>
 
-  <div *ngIf="filteredClimbs.length === 0" class="no-results">
+  <div *ngIf="filteredClimbs.length === 0" class="no-results mat-elevation-z1">
+    <mat-icon>search_off</mat-icon>
     <p>No climbs match your filters.</p>
   </div>
 </div>
+    <p>No climbs match your filters.</p>

@@ -11,6 +11,10 @@ export interface Climb {
   routeId: number;
   grade: string;
   status: string;
+  gymId: number;
+  setDate: string;
+  removeDate?: string;
+  adminId: number;
   
   // Alias for compatibility
   climbId?: number;  // Will be routeId

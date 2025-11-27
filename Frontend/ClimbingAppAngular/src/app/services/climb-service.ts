@@ -13,18 +13,48 @@ export class ClimbService {
 
   getClimbs(): Observable<Climb[]> {
     return this.http.get<any[]>(`${this.baseUrl}/usersession`).pipe(
-      map(sessions => sessions.map(session => ({
-        userId: session.userID || session.userid,
-        routeId: session.routeID || session.routeid,
-        grade: session.gradeFbleau || session.gradefbleau,
-        status: session.status,
-        climbId: session.routeID || session.routeid  // Alias for compatibility
-      })))
+      map(sessions => {
+        console.log('Raw sessions from API:', sessions);
+        return sessions.map(session => {
+          console.log('Mapping session:', session);
+          return {
+            userId: session.userID ?? session.userid,
+            routeId: session.routeID ?? session.routeid,
+            grade: session.gradeFbleau ?? session.gradefbleau,
+            status: session.status,
+            gymId: session.gymID ?? session.gymid,
+            setDate: session.setDate ?? session.setdate,
+            removeDate: session.removeDate ?? session.removedate,
+            adminId: session.adminID ?? session.adminid,
+            climbId: session.routeID ?? session.routeid
+          };
+        });
+      })
     );
   }
 
   getClimb(id: number): Observable<Climb> {
-    return this.http.get<Climb>(`${this.baseUrl}/climb/${id}`);
+    return this.http.get<any[]>(`${this.baseUrl}/usersession`).pipe(
+      map(sessions => {
+        console.log('All sessions:', sessions);
+        const session = sessions.find(s => (s.routeID ?? s.routeid) === id);
+        if (!session) {
+          throw new Error('Climb not found');
+        }
+        console.log('Found session:', session);
+        return {
+          userId: session.userID ?? session.userid,
+          routeId: session.routeID ?? session.routeid,
+          grade: session.gradeFbleau ?? session.gradefbleau,
+          status: session.status,
+          gymId: session.gymID ?? session.gymid,
+          setDate: session.setDate ?? session.setdate,
+          removeDate: session.removeDate ?? session.removedate,
+          adminId: session.adminID ?? session.adminid,
+          climbId: session.routeID ?? session.routeid
+        };
+      })
+    );
   }
 
   createClimb(climb: Climb): Observable<any> {
