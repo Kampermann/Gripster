@@ -117,10 +117,11 @@ namespace ClimbingApp.API.Controllers
                 return BadRequest($"Route with ID {routeId} does not exist");
             }
             
+            // This will insert or update (upsert)
             bool result = Repository.InsertUserRouteByID(userId, routeId, status);
             if (result)
             {
-                return Ok();
+                return Ok(new { message = "UserRoute created or updated successfully" });
             }
             return BadRequest("Something went wrong");
         }

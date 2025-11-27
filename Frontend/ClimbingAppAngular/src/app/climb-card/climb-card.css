@@ -1,16 +1,16 @@
 .climb-card {
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-  border-left: 4px solid #4CAF50;
-  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 4px solid #667eea;
 }
 
 .climb-card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .climb-link {
@@ -20,49 +20,78 @@
 }
 
 .climb-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .climb-info p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #555;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #eee;
-}
-
-.climb-info p:last-child {
-  border-bottom: none;
+  align-items: center;
+  margin: 10px 0;
+  padding: 8px 0;
+  color: #333;
 }
 
 .climb-info strong {
-  color: #333;
   font-weight: 600;
-  min-width: 120px;
+  color: #555;
+  font-size: 14px;
+}
+
+.climb-info span {
+  font-weight: 700;
+  font-size: 16px;
+  color: #667eea;
 }
 
 .climb-actions {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 1rem;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.delete-btn {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 4px;
+.climb-actions button {
+  flex: 1;
+  min-width: 90px;
+  padding: 10px 14px;
+  border: 1px solid #e0e0e0;
+  background: #f5f5f5;
+  color: #333;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.2s;
+  font-weight: 500;
+  font-size: 13px;
+  transition: all 0.2s ease;
 }
 
-.delete-btn:hover {
-  background-color: #d32f2f;
+.climb-actions button:hover {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+.climb-actions button:active {
+  transform: scale(0.98);
+}
+
+.climb-actions button:first-child {
+  background: #fee;
+  border-color: #fcc;
+  color: #c33;
+}
+
+.climb-actions button:first-child:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .climb-card {
+    padding: 16px;
+  }
+
+  .climb-actions button {
+    min-width: calc(50% - 4px);
+  }
 }

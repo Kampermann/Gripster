@@ -42,7 +42,7 @@ export class ClimbList implements OnInit {
     if (confirm('Are you sure you want to delete this climb?')) {
       this.climbService.deleteClimb(id).subscribe({
         next: () => {
-          this.climbs = this.climbs.filter(climb => climb.id !== id);
+          this.climbs = this.climbs.filter(climb => climb.climbId !== id);
         },
         error: (error) => {
           console.error('Error deleting climb:', error);

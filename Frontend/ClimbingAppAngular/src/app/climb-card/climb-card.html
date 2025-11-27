@@ -1,17 +1,15 @@
 <div class="climb-card">
-  <a [routerLink]="['/climb-detail', climb.id]" class="climb-link">
+  <a [routerLink]="['/climb-detail', climb.routeId]" class="climb-link">
     <div class="climb-info">
-      <p><strong>Climb #</strong> <span>{{ climb.id }}</span></p>
-      <p><strong>Grade ID</strong> <span>{{ climb.gradeID }}</span></p>
-      <p><strong>Set Date</strong> <span>{{ climb.setDate | date: 'mediumDate' }}</span></p>
-      <p *ngIf="climb.removeDate"><strong>Remove Date</strong> <span>{{ climb.removeDate | date: 'mediumDate' }}</span></p>
+      <p><strong>Route #</strong> <span>{{ climb.routeId }}</span></p>
+      <p><strong>Grade</strong> <span>{{ climb.grade }}</span></p>
+      <p><strong>Status</strong> <span>{{ climb.status }}</span></p>
     </div>
   </a>
   <div class="climb-actions">
     <button (click)="deleteClimb(); $event.stopPropagation()">Delete</button>
-    <button (click)="updateClimbStatus(1, climb.id, 'Flash'); $event.stopPropagation()">Flash</button>
-    <button (click)="updateClimbStatus(1, climb.id, 'top'); $event.stopPropagation()">Top</button>
-    <button (click)="updateClimbStatus(1, climb.id, 'attempted'); $event.stopPropagation()">Attempted</button>
-    <button (click)="viewClimbDetails(); $event.stopPropagation()">Details</button>
+    <button (click)="updateClimbStatus(climb.userId, climb.routeId, 'Top'); $event.stopPropagation()">Top</button>
+    <button (click)="updateClimbStatus(climb.userId, climb.routeId, 'Attempted'); $event.stopPropagation()">Attempted</button>
+    <button (click)="updateClimbStatus(climb.userId, climb.routeId, 'Flash'); $event.stopPropagation()">Flash</button>
   </div>
 </div>

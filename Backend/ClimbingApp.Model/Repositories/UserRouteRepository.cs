@@ -173,10 +173,10 @@ values
             dbConn = new NpgsqlConnection(ConnectionString);
             var cmd = dbConn.CreateCommand();
             cmd.CommandText = @"
-insert into ""UserRoute""
-(""UserID"", ""RouteID"", ""Status"")
-values
-(@userid, @routeid, @status)
+INSERT INTO ""UserRoute"" (""UserID"", ""RouteID"", ""Status"")
+VALUES (@userid, @routeid, @status)
+ON CONFLICT (""UserID"", ""RouteID"") 
+DO UPDATE SET ""Status"" = @status
 ";
             cmd.Parameters.AddWithValue("@userid", NpgsqlDbType.Integer, userID);
             cmd.Parameters.AddWithValue("@routeid", NpgsqlDbType.Integer, routeID);
