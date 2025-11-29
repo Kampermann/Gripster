@@ -50,8 +50,7 @@ export class MyClimbs implements OnInit {
         // Filter to only show climbs with Top, Flash, or Attempted status
         this.climbs = climbs.filter(climb => 
           climb.status === 'Top' || 
-          climb.status === 'Flash' || 
-          climb.status === 'Attempted'
+          climb.status === 'Flash'
         );
         this.filteredClimbs = this.climbs;
         this.extractAvailableGrades();
